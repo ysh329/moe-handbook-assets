@@ -1,1 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="830" viewBox="0 0 1500 830"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style><table><thead><tr><th>Model</th><th>Who selects</th><th>Token-id lookup</th></tr></thead><tbody><tr><td>DeepSeek-V4-Pro</td><td>token choice</td><td>hash routing in the first 3 MoE layers</td></tr><tr><td>DeepSeek-V4.1-Flash</td><td>token choice</td><td>Engram n-gram memory (2- to 4-grams) at layers 1 and 14; no hash routing</td></tr><tr><td>EC-CF2 8B/64E (Zhou et al.)</td><td>expert choice</td><td>none</td></tr><tr><td>GLM-5.3</td><td>token choice</td><td>none</td></tr><tr><td>Kimi K3</td><td>token choice</td><td>none</td></tr><tr><td>Llama 4 Maverick</td><td>token choice</td><td>none</td></tr><tr><td>MiMo-V2.6-Pro-RL</td><td>token choice</td><td>none</td></tr><tr><td>Qwen3.8-Flash-Next</td><td>token choice</td><td>n-gram embedding (2- and 3-grams) at layer 1</td></tr><tr><td>Step-5-Preview</td><td>token choice</td><td>none</td></tr></tbody></table></div></foreignObject></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="431" viewBox="0 0 1500 431">
+<foreignObject width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style>
+<table class="glance">
+<thead>
+<tr>
+<th>Model</th>
+<th>Who selects</th>
+<th>Token-id lookup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSeek-V4-Pro</td>
+<td>token choice</td>
+<td>hash routing in the first 3 MoE layers</td>
+</tr>
+<tr>
+<td>DeepSeek-V4.1-Flash</td>
+<td>token choice</td>
+<td>Engram n-gram memory (2- to 4-grams) at layers 1 and 14; no hash routing</td>
+</tr>
+<tr>
+<td>EC-CF2 8B/64E (Zhou et al.)</td>
+<td>expert choice</td>
+<td>none</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td>token choice</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>token choice</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Llama 4 Maverick</td>
+<td>token choice</td>
+<td>none</td>
+</tr>
+<tr>
+<td>MiMo-V2.6-Pro-RL</td>
+<td>token choice</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Qwen3.8-Flash-Next</td>
+<td>token choice</td>
+<td>n-gram embedding (2- and 3-grams) at layer 1</td>
+</tr>
+<tr>
+<td>Step-5-Preview</td>
+<td>token choice</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</div>
+</foreignObject>
+</svg>
