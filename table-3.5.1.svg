@@ -1,1 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="674" viewBox="0 0 1500 674"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}</style><table><thead><tr><th>Model</th><th>Dense layers</th><th>Block wiring</th></tr></thead><tbody><tr><td>DeepSeek-V3</td><td>First 3 dense, remaining 58 MoE</td><td>Attention followed by FFN</td></tr><tr><td>DeepSeek-V4.1-Flash</td><td>All 40 blocks use MoE</td><td>Single-Pass mHC residual connections</td></tr><tr><td>GLM-5.3</td><td>First 3 dense, remaining 75 MoE</td><td>Attention followed by FFN</td></tr><tr><td>Kimi K3</td><td>First layer dense, remaining 92 MoE</td><td>Attention followed by Stable LatentMoE; Attention Residuals</td></tr><tr><td>Llama 4 Maverick</td><td>Alternating dense and MoE, starting dense</td><td>MoE every second layer</td></tr><tr><td>LongCat-Flash</td><td>Dense FFNs and MoE coexist within each macro-block</td><td>Shortcut-connected MoE overlaps with later attention and FFN work</td></tr><tr><td>MiMo-V2.6-Pro</td><td>First layer dense, remaining 69 MoE</td><td>Hybrid attention blocks followed by FFNs</td></tr></tbody></table></div></foreignObject></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="345" viewBox="0 0 1500 345">
+<foreignObject width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style>
+<table class="glance">
+<thead>
+<tr>
+<th>Model</th>
+<th>Dense layers</th>
+<th>Block wiring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSeek-V3</td>
+<td>First 3 dense, remaining 58 MoE</td>
+<td>Attention followed by FFN</td>
+</tr>
+<tr>
+<td>DeepSeek-V4.1-Flash</td>
+<td>All 40 blocks use MoE</td>
+<td>Single-Pass mHC residual connections</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td>First 3 dense, remaining 75 MoE</td>
+<td>Attention followed by FFN</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>First layer dense, remaining 92 MoE</td>
+<td>Attention followed by Stable LatentMoE; Attention Residuals</td>
+</tr>
+<tr>
+<td>Llama 4 Maverick</td>
+<td>Alternating dense and MoE, starting dense</td>
+<td>MoE every second layer</td>
+</tr>
+<tr>
+<td>LongCat-Flash</td>
+<td>Dense FFNs and MoE coexist within each macro-block</td>
+<td>Shortcut-connected MoE overlaps with later attention and FFN work</td>
+</tr>
+<tr>
+<td>MiMo-V2.6-Pro</td>
+<td>First layer dense, remaining 69 MoE</td>
+<td>Hybrid attention blocks followed by FFNs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</foreignObject>
+</svg>

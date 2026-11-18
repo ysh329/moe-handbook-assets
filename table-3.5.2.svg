@@ -1,1 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="284" viewBox="0 0 1500 284"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace}</style><table><thead><tr><th>Part</th><th>Symptom</th><th>Signal to watch</th></tr></thead><tbody><tr><td>Dense layers</td><td><code>learns badly</code>: the first MoE layers balance poorly or their routing collapses. <code>blows up</code>: an image-generation MoE diverged without its leading dense layers. <code>slow</code>: an MoE in every layer means more all-to-alls.</td><td>Aux loss (<code>--moe-per-layer-logging</code>) and MaxVio (routing trace, A.1) in the first MoE layers after the dense block.</td></tr><tr><td>Block wiring</td><td><code>slow</code>: the all-to-all is not hidden behind compute.</td><td>How much of the all-to-all is exposed: in an nsys timeline (3.7 Profiling), compare the all-to-all kernels on the side stream with the compute on the main stream.</td></tr></tbody></table></div></foreignObject></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="175" viewBox="0 0 1500 175">
+<foreignObject width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style>
+<table class="glance">
+<thead>
+<tr>
+<th>Part</th>
+<th>Symptom</th>
+<th>Signal to watch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dense layers</td>
+<td>
+<code>learns badly</code>: the first MoE layers balance poorly or their routing collapses. <code>blows up</code>: an image-generation MoE diverged without its leading dense layers. <code>slow</code>: an MoE in every layer means more all-to-alls.</td>
+<td>Aux loss (<code>
+<span class="nw">--moe-per-layer-logging</span>
+</code>) and MaxVio (routing trace, A.1) in the first MoE layers after the dense block.</td>
+</tr>
+<tr>
+<td>Block wiring</td>
+<td>
+<code>slow</code>: the all-to-all is not hidden behind compute.</td>
+<td>How much of the all-to-all is exposed: in an nsys timeline (3.7 Profiling), compare the all-to-all kernels on the side stream with the compute on the main stream.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</foreignObject>
+</svg>

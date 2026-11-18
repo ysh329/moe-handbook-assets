@@ -1,1 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="518" viewBox="0 0 1500 518"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}</style><table><thead><tr><th>Model</th><th>Initialization</th><th>Optimizer</th><th>MTP</th><th>Stability choices</th></tr></thead><tbody><tr><td>DeepSeek-V3</td><td>Random initialization</td><td>AdamW</td><td>1 MTP layer</td><td>Gradient clipping at norm 1.0; embedding, output head, MoE gating, normalization and attention kept in BF16 or FP32 during FP8 training</td></tr><tr><td>DeepSeek-V4.1-Flash</td><td>From scratch</td><td>Muon for linear weights, AdamW for normalization and non-matrix parameters</td><td>No backbone MTP during pretraining; DSpark trained separately afterward</td><td>SwiGLU clipping at 10; modality-specific balancing</td></tr><tr><td>Kimi K3</td><td>From scratch, language and vision trained jointly from the start</td><td>Muon for matrix parameters, with per-head updates for attention projections</td><td>1 MTP layer</td><td>Weight clipping, attention output in FP32, normalized LatentMoE, SiTU-GLU and quantile balancing</td></tr><tr><td>LongCat-Flash</td><td>A trained 14-layer model, stacked into 28 layers</td><td>Adam-family, with hyperparameters transferred by Adam's scaling rules</td><td>MTP used as an auxiliary objective</td><td>Hidden-state z-loss, router-gradient monitoring, Adam epsilon of 1e-16 and deterministic computation</td></tr><tr><td>Step 3.5 Flash</td><td>Not reported</td><td>Muon, with its Polar Express iteration in FP16</td><td>3 MTP heads</td><td>Gradient clipping at 1.0; expert activation clipping; monitor expert norms alongside loss</td></tr></tbody></table></div></foreignObject></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="369" viewBox="0 0 1500 369">
+<foreignObject width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style>
+<table class="glance">
+<thead>
+<tr>
+<th>Model</th>
+<th>Initialization</th>
+<th>Optimizer</th>
+<th>MTP</th>
+<th>Stability choices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSeek-V3</td>
+<td>Random initialization</td>
+<td>AdamW</td>
+<td>1 MTP layer</td>
+<td>Gradient clipping at norm 1.0; embedding, output head, MoE gating, normalization and attention kept in BF16 or FP32 during FP8 training</td>
+</tr>
+<tr>
+<td>DeepSeek-V4.1-Flash</td>
+<td>From scratch</td>
+<td>Muon for linear weights, AdamW for normalization and non-matrix parameters</td>
+<td>No backbone MTP during pretraining; DSpark trained separately afterward</td>
+<td>SwiGLU clipping at 10; modality-specific balancing</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>From scratch, language and vision trained jointly from the start</td>
+<td>Muon for matrix parameters, with per-head updates for attention projections</td>
+<td>1 MTP layer</td>
+<td>Weight clipping, attention output in FP32, normalized LatentMoE, SiTU-GLU and quantile balancing</td>
+</tr>
+<tr>
+<td>LongCat-Flash</td>
+<td>A trained 14-layer model, stacked into 28 layers</td>
+<td>Adam-family, with hyperparameters transferred by Adam's scaling rules</td>
+<td>MTP used as an auxiliary objective</td>
+<td>Hidden-state z-loss, router-gradient monitoring, Adam epsilon of 1e-16 and deterministic computation</td>
+</tr>
+<tr>
+<td>Step 3.5 Flash</td>
+<td>Not reported</td>
+<td>Muon, with its Polar Express iteration in FP16</td>
+<td>3 MTP heads</td>
+<td>Gradient clipping at 1.0; expert activation clipping; monitor expert norms alongside loss</td>
+</tr>
+</tbody>
+</table>
+</div>
+</foreignObject>
+</svg>
