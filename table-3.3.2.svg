@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="518" viewBox="0 0 1500 518"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace}</style><table><thead><tr><th>Part</th><th>Symptom</th><th>Signal to watch</th></tr></thead><tbody><tr><td>Cost of imbalance</td><td><code>slow</code>: the GPU holding the busiest experts sets the step.</td><td>TFLOP/s against the forced-even control run.</td></tr><tr><td>Aux loss</td><td><code>learns badly</code>: a coefficient set too high makes the model learn worse, and one set too low leaves the load uneven.</td><td>LM loss and MaxVio together: with flat router probabilities, the aux loss can look balanced while the load stays uneven.</td></tr><tr><td>Scope</td><td><code>learns badly</code>: balancing per sequence or per micro-batch keeps domain experts from forming. <code>slow</code>: balancing per global batch leaves the load on each GPU uneven; the step took 5.8% longer, mainly from that imbalance and about 1% of that slowdown from communication.</td><td>MaxVio at the scope you balance: per micro-batch or per global batch from the token counts, per sequence from the routing trace (A.1).</td></tr><tr><td>Loss-free bias</td><td><code>slow</code>: with a fixed step of 1e-3, the busiest expert still gets about 20 times the mean load at 128 experts. <code>learns badly</code>: above 128 experts, that step is too coarse.</td><td>How far <code>expert_bias</code> spreads in each layer across checkpoints, and MaxVio per global batch from the token counts (A.1).</td></tr><tr><td>Quantile</td><td><code>slow</code>: smoothing the bias with a moving average makes it lag the router's scores. The bias is shared by the global batch, so each GPU's load can stay uneven, as in Scope.</td><td>MaxVio per micro-batch alongside MaxVio per global batch, from the saved token counts (A.1), to detect a globally balanced batch hiding local imbalance.</td></tr></tbody></table></div></foreignObject></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="412" viewBox="0 0 1500 412">
+<foreignObject width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>body{margin:0;background:#fff;font-family:Arial,sans-serif;color:#16181d}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}th{background:#eef1f6;text-align:left;font-weight:600}th,td{border:1px solid #b8bec9;padding:10px 12px;vertical-align:top}code{font-family:monospace;font-size:14px;overflow-wrap:anywhere}</style>
+<table class="glance">
+<thead>
+<tr>
+<th>Part</th>
+<th>Symptom</th>
+<th>Signal to watch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost of imbalance</td>
+<td>
+<code>slow</code>: the GPU holding the busiest experts sets the step.</td>
+<td>TFLOP/s against the forced-even control run.</td>
+</tr>
+<tr>
+<td>Aux loss</td>
+<td>
+<code>learns badly</code>: a coefficient set too high makes the model learn worse, and one set too low leaves the load uneven.</td>
+<td>LM loss and MaxVio together: with flat router probabilities, the aux loss can look balanced while the load stays uneven.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>
+<code>learns badly</code>: balancing per sequence or per micro-batch keeps domain experts from forming. <code>slow</code>: balancing per global batch leaves the load on each GPU uneven; the step took 5.8% longer, mainly from that imbalance and about 1% of that slowdown from communication.</td>
+<td>MaxVio at the scope you balance: per micro-batch or per global batch from the token counts, per sequence from the routing trace (A.1).</td>
+</tr>
+<tr>
+<td>Loss-free bias</td>
+<td>
+<code>slow</code>: with a fixed step of 1e-3, the busiest expert still gets about 20 times the mean load at 128 experts. <code>learns badly</code>: above 128 experts, that step is too coarse.</td>
+<td>How far <code>expert_bias</code> spreads in each layer across checkpoints, and MaxVio per global batch from the token counts (A.1).</td>
+</tr>
+<tr>
+<td>Quantile</td>
+<td>
+<code>slow</code>: smoothing the bias with a moving average makes it lag the router's scores. The bias is shared by the global batch, so each GPU's load can stay uneven, as in Scope.</td>
+<td>MaxVio per micro-batch alongside MaxVio per global batch, from the saved token counts (A.1), to detect a globally balanced batch hiding local imbalance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</foreignObject>
+</svg>
